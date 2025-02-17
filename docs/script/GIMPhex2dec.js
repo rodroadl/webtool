@@ -3,7 +3,7 @@ $(document).ready(function(){
         var hexTxt = document.getElementById("hex").value;
         // parse hexTxt
         var lines = hexTxt.split('\n');
-        var ret = '';
+        var ret = 'JASC-PAL\n0100\n16\n';
 
         for(let i = 0; i<lines.length;i++){
             for(let j=0;j<3;j++){
@@ -15,7 +15,10 @@ $(document).ready(function(){
             }
             ret = ret.trimEnd();
             ret += '\n';
+        }
 
+        for(let i=0;i<16-lines.length;i++){
+            ret += "1 1 1\n"
         }
 
         document.getElementById("dec").value=ret;
